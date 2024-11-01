@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrollable Full Page Image</title>
+    <title>Scrollable Full Page Image with Textured Gold Buttons</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <style>
         /* Reset margin and padding */
         body,
@@ -13,6 +15,7 @@
             padding: 0;
             overflow: auto; /* Allow scrolling */
             height: 100%; /* Ensures the body takes full height */
+            position: relative; /* For positioning buttons */
         }
 
         /* Image styling */
@@ -20,6 +23,60 @@
             width: 100%; /* Scale width to full page */
             height: auto; /* Keep aspect ratio */
             display: block; /* Removes extra space below the image */
+        }
+
+        /* Container for button and label */
+        .button-container {
+            position: fixed;
+            left: 50px; /* Positioning a bit more to the right */
+            display: flex;
+            flex-direction: column; /* Stack button and label */
+            align-items: center; /* Center align text below button */
+            color: #967000; /* Text color */
+            font-size: 16px; /* Increased font size */
+            font-weight: 500;
+            text-shadow: 2px 2px 5px rgba(52, 52, 52, 0.5); /* Horizontal, vertical offset, blur, color */
+        
+        }
+
+        /* Button styling with gold texture */
+        .btn-circle {
+            width: 90px; /* Increased button size */
+            height: 90px;
+            border-radius: 50%; /* Make button circular */
+            /* background-image: url('data:image/jpeg;base64,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'); Replace with a real URL */
+            /* background-image: url('https://media.istockphoto.com/id/483586507/pt/foto/parede-de-ouro.jpg?s=612x612&w=0&k=20&c=ieNZVAhg2ZkS6_LTvGAx_-FEFcJ4blaKB8_W0oEJVF8='); */
+            /* background-image: url('https://img.freepik.com/fotos-gratis/textura-da-parede-amarela-com-arranhoes_1249-77.jpg'); */
+            /* background-image: url('https://media.istockphoto.com/id/186835568/pt/foto/textura-de-ouro.jpg?s=612x612&w=0&k=20&c=rM_stiPc4g71MwZBZCb5ySP-mfM0qYQar5kMGx5EiYY='); */
+            background-image: url('https://static.vecteezy.com/system/resources/previews/030/904/763/large_2x/texture-of-shiny-yellow-gold-foil-sheet-gold-background-luxury-shiny-gold-texture-for-design-sample-copy-space-metal-background-texture-in-gold-gold-paint-ai-generated-photo.jpeg');
+            /* background-image: url(''); */
+            background-size: cover; /* Make texture cover button */
+            background-position: center; /* Center the texture */
+            color: #fffdf7; /* Icon color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px; /* Increase icon size */
+
+            transition: transform 0.3s; /* Hover effect */
+            border: 3.2px solid rgba(152, 130, 10, 0.7); /* Optional: Border with gold hue */
+        }
+
+        .btn-circle:hover {
+            transform: scale(1.1); /* Enlarge on hover */
+        }
+
+        /* Positioning for each button container */
+        .button-top {
+            bottom: 180px; /* Top button distance from bottom */
+        }
+
+        .button-bottom {
+            bottom: 40px; /* Bottom button distance from bottom */
+        }
+
+        .button-container div{
+          margin-top: 5px;
         }
     </style>
 </head>
@@ -30,6 +87,25 @@
         <area shape="rect" coords="127,6831,475,7184" title="Confirma Sua Presença Clicando Aqui" href="https://wa.me/556193411661?text=%20Ol%C3%A1!%20%3A%CB%86)%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20na%20comemora%C3%A7%C3%A3o%20do%20dia%2023/11%20%5C(%CB%86_%CB%86)/">
         <area shape="rect" coords="128,6262,505,6714" title="Local" href="">
     </map>
+
+    <!-- Top button container with label -->
+    <div class="button-container button-top">
+        <a href="#" class="btn btn-circle">
+            <i class="bi bi-geo-alt fw-bold" style="font-weight: 900;"></i> <!-- Location icon -->
+        </a>
+        <div class="fw-bold">Localização do Evento</div> <!-- Text label -->
+    </div>
+
+    <!-- Bottom button container with label -->
+    <div class="button-container button-bottom">
+        <a href="#" class="btn btn-circle">
+            <i class="bi bi-check-circle fw-bold" style="font-weight: 900;"></i> <!-- Confirmation icon -->
+        </a>
+        <div class="fw-bold">Confirma Sua Presença</div> <!-- Text label -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
