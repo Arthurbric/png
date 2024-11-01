@@ -2,56 +2,34 @@
 <html lang="en">
 
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Scrollable Full Page Image</title>
-     <style>
-          /* Reset margin and padding */
-          body,
-          html {
-               margin: 0;
-               padding: 0;
-               overflow: auto;
-               /* Allow scrolling */
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrollable Full Page Image</title>
+    <style>
+        /* Reset margin and padding */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            overflow: auto; /* Allow scrolling */
+            height: 100%; /* Ensures the body takes full height */
+        }
 
-          /* Image styling */
-          img {
-               width: 100%;
-               /* Scale width to full page */
-               height: auto;
-               /* Keep aspect ratio */
-               display: block;
-               /* Removes extra space below the image */
-          }
-     </style>
+        /* Image styling */
+        img {
+            width: 100%; /* Scale width to full page */
+            height: auto; /* Keep aspect ratio */
+            display: block; /* Removes extra space below the image */
+        }
+    </style>
 </head>
 
 <body>
-     <img src="convite.jpg" usemap="#vivi" >
-     <map name="vivi">
-          <area shape="rect" coords="127,6831,475,7184" title="Confirma Sua Presença Clicando Aqui" href="https://wa.me/556193411661?text=%20Ol%C3%A1!%20%3A%CB%86)%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20na%20comemora%C3%A7%C3%A3o%20do%20dia%2023/11%20%5C(%CB%86_%CB%86)/" >
-          <area shape="rect" coords="128,6262,505,6714" title="Local" href="">
-     </map>
+    <img src="convite.jpg" usemap="#vivi" alt="Scrollable Image">
+    <map name="vivi">
+        <area shape="rect" coords="127,6831,475,7184" title="Confirma Sua Presença Clicando Aqui" href="https://wa.me/556193411661?text=%20Ol%C3%A1!%20%3A%CB%86)%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20na%20comemora%C3%A7%C3%A3o%20do%20dia%2023/11%20%5C(%CB%86_%CB%86)/">
+        <area shape="rect" coords="128,6262,505,6714" title="Local" href="">
+    </map>
 </body>
-<script>
-     SendWhatsapp = function(message, number) {
-  number = LibGeral.NormalizeMobileNumber(number);
-  if (empty(message)) {
-    message = "";
-  }
 
-  var urlApiWhats = "https://wa.me/" + number + "?text=" + message;
-  urlApiWhats = encodeURI(urlApiWhats);
-  var a = document.createElement("a");
-  a.setAttribute("data-action", "share/whatsapp/share")
-  a.href = urlApiWhats;
-  window.document.body.appendChild(a)
-  a.click();
-  window.document.body.removeChild(a);
-  return true;
-}
-
-SendWhatsapp("I'm a message with emoji 😂", "xxxxxxxxx")
-</script>
 </html>
