@@ -4,207 +4,34 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Festa da Formatura da Vitória</title>
-     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/42/42972.png" type="image/png">
-     <!-- Adicione o caminho do seu ícone aqui -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
+     <title>Scrollable Full Page Image</title>
      <style>
+          /* Reset margin and padding */
           body,
           html {
-               height: 100%;
                margin: 0;
-               display: flex;
-               align-items: center;
-               justify-content: center;
-               background-image: url('https://images.unsplash.com/photo-1558066858-246fbbf9446f?q=80&w=2754&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-               background-size: cover;
-               background-position: center;
+               padding: 0;
+               overflow: auto;
+               /* Allow scrolling */
           }
 
-          .center-box {
-               width: 80%;
-               max-width: 600px;
-               min-width: 400px;
-               height: 100%;
-               display: flex;
-               flex-direction: column;
-               align-items: center;
-               justify-content: center;
-               padding: 0px;
-               box-sizing: border-box;
-               color: #634133;
-               font-size: 1.5em;
-               padding-bottom: 50px;
-               margin-bottom: 50px;
-          }
-
-          .inner-box {
-               width: 90%;
+          /* Image styling */
+          img {
+               width: 100%;
+               /* Scale width to full page */
                height: auto;
-               margin: 10px auto;
-               padding: 0px;
-               text-align: center;
-               display: flex;
-               align-items: center;
-               justify-content: center;
-               color: #634133;
-               flex-direction: column;
-               border-radius: 8px;
-          }
-
-          .inner-box img {
-               max-height: 300px;
-               border-radius: 8px;
-               object-fit: cover;
-          }
-
-          .button-container {
-               display: flex;
-               justify-content: center;
-               gap: 40px;
-               margin-top: 20px;
-          }
-
-          .btn-circle {
-               margin: 0 auto;
-               width: 90px;
-               height: 90px;
-               border-radius: 50%;
-               background-image: url('https://static.vecteezy.com/system/resources/previews/030/904/763/large_2x/texture-of-shiny-yellow-gold-foil-sheet-gold-background-luxury-shiny-gold-texture-for-design-sample-copy-space-metal-background-texture-in-gold-gold-paint-ai-generated-photo.jpeg');
-               background-size: cover;
-               background-position: center;
-               color: #634133;
-               display: flex;
-               justify-content: center;
-               align-items: center;
-               font-size: 40px;
-               transition: transform 0.3s;
-               border: 3.2px solid rgba(255, 248, 248, 0.792);
-               text-decoration: none;
-          }
-
-          .btn-circle:hover {
-               transform: scale(1.1);
-          }
-
-          .button-label {
-               text-align: center;
-               color: #634133;
-               font-size: 20px;
-               font-weight: 500;
-               text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.864);
-               margin-top: 5px;
-          }
-
-          /* Popup styling */
-          .popup {
-               font-size: x-large;
-               position: fixed;
-               top: 50%;
-               left: 50%;
-               transform: translate(-50%, -50%);
-               padding: 20px;
-               /* Increased padding */
-               background-color: #333;
-               color: #fff;
-               border-radius: 10px;
-               display: none;
-               z-index: 10;
-               text-align: center;
-               max-width: 60%;
-               width: 250px;
-               /* Fixed width */
-          }
-
-
-          .popup a {
-               color: #ffdd57;
-               margin: 10px 0;
+               /* Keep aspect ratio */
                display: block;
-          }
-
-          .popup button {
-               margin-top: 10px;
-               padding: 10px 20px;
-               background-color: #ffdd57;
-               border: none;
-               border-radius: 5px;
-               color: #333;
-               cursor: pointer;
-               font-size: x-large;
+               /* Removes extra space below the image */
           }
      </style>
 </head>
 
 <body>
-
-     <div class="center-box">
-          <div class="inner-box">
-               <img style="padding-top: 30px;margin-top: 30px;" src="image.png" alt="Imagem de Formatura">
-          </div>
-          <div class="inner-box">
-               <p style="text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.864);">
-                    Me formei na universidade e quero comemorar esse momento especial com você!
-                    <br><br>
-                    23 de novembro às 12 horas!
-               </p>
-          </div>
-          <div class="inner-box">
-               <div class="button-container">
-                    <div style="text-align: center;">
-                         <a href="#" class="btn-circle" onclick="showLocationPopup()">
-                              <i class="bi bi-geo-alt fw-bold" style="font-weight: 900;"></i>
-                         </a>
-                         <div class="button-label">Localização do Evento</div>
-                    </div>
-
-                    <div style="text-align: center;">
-                         <a href="#" class="btn-circle" onclick="showConfirmPopup()">
-                              <i class="bi bi-check-circle fw-bold" style="font-weight: 900;"></i>
-                         </a>
-                         <div class="button-label">Confirma Sua Presença</div>
-                    </div>
-               </div>
-          </div>
-     </div>
-
-     <!-- Location Popup -->
-     <div id="locationPopup" class="popup">
-          <p>Escolha o aplicativo:</p>
-          <a href="https://maps.app.goo.gl/oqf4SKZhKXQyu1WVA?g_st=com.google.maps.preview.copy" target="_blank">Google
-               Maps <i class="bi bi-map"></i></a>
-          <a href=" https://waze.com/ul/h6vjvdmjt8" target="_blank">Waze <i class="bi bi-compass"></i></a>
-          <button onclick="closePopup('locationPopup')">Fechar <i class="bi bi-door-closed"></i></button>
-     </div>
-
-     <!-- Confirm Popup -->
-     <div id="confirmPopup" class="popup">
-          <p>Escolha uma opção:</p>
-          <a href="https://wa.me/556193411661?text=Confirmo%20minha%20presença%20na%20comemoração%20do%20dia%2023/11"
-               target="_blank">Confirmar <i class="bi bi-emoji-laughing"></i></a>
-          <a href="https://wa.me/556193411661?text=Ainda%20não%20tenho%20certeza%20sobre%20minha%20presença"
-               target="_blank">Ainda não tenho certeza <i class="bi bi-emoji-expressionless"></i></a>
-          <a href="https://wa.me/556193411661?text=Infelizmente%20não%20poderei%20comparecer" target="_blank">Não
-               poderei comparecer <i class="bi bi-emoji-frown"></i></a>
-          <button onclick="closePopup('confirmPopup')">Fechar <i class="bi bi-door-closed"></i></button>
-     </div>
-
-     <script>
-          function showLocationPopup() {
-               document.getElementById('locationPopup').style.display = 'block';
-          }
-
-          function showConfirmPopup() {
-               document.getElementById('confirmPopup').style.display = 'block';
-          }
-
-          function closePopup(popupId) {
-               document.getElementById(popupId).style.display = 'none';
-          }
-     </script>
-
+     <img src="convite.jpg" usemap="#vivi" >
+     <map name="vivi">
+          <area shape="rect" coords="127,6831,475,7184" title="Confirma Sua Presença Clicando Aqui" href="https://wa.me/556193411661?text=%20Ol%C3%A1!%20%3A%CB%86)%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20na%20comemora%C3%A7%C3%A3o%20do%20dia%2023/11%20%5C(%CB%86_%CB%86)/" >
+          <area shape="rect" coords="128,6262,505,6714" title="Local" href="">
+     </map>
 </body>
-
 </html>
